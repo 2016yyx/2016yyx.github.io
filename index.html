@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>知识点</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+    <div class="topbar">
+      <h1>📚 知识点 <span class="lib-name" id="libName">杨知行</span></h1>
+      <button class="lib-switch" id="libSwitch">切换库</button>
+    </div>
+    <div class="viewnav">
+      <button class="viewtab active" data-v="review">📋 今日复习</button>
+      <button class="viewtab" data-v="study">📖 自由学习</button>
+      <button class="viewtab" data-v="wrong">❌ 错题重练</button>
+    </div>
+  </header>
+
+  <main id="main"></main>
+
+  <!-- 库切换弹窗 -->
+  <div class="mask" id="libModal">
+    <div class="modal">
+      <h3>选择学习者</h3>
+      <p>不同学习者有独立的知识点与学习进度。</p>
+      <div class="lib-list" id="libList"></div>
+      <div class="m-btns"><button class="btn" id="libCancel">取消</button></div>
+    </div>
+  </div>
+
+  <!-- 导入进度弹窗 -->
+  <div class="mask" id="importModal">
+    <div class="modal">
+      <h3>导入进度</h3>
+      <p>选择此前「导出进度」得到的 .json 文件，将合并到当前库。</p>
+      <input type="file" id="importFile" accept="application/json,.json">
+      <div class="m-err" id="importErr"></div>
+      <div class="m-btns">
+        <button class="btn" id="importCancel">取消</button>
+        <button class="btn primary" id="importConfirm">导入</button>
+      </div>
+      <div class="filehint">仅导入属于当前库知识点的条目（按编号匹配）。</div>
+    </div>
+  </div>
+
+  <script src="data.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
